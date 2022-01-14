@@ -6,7 +6,10 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint --fix --ext .js,.vue,.ts src",
-    "cz": "git add . && git-cz"
+    "cz": "git-cz",
+    "lint-staged": "lint-staged",
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "prepare": "husky install"
   },
   "dependencies": {
     "ant-design-vue": "^2.2.8",
@@ -27,6 +30,7 @@
     "@zougt/vite-plugin-theme-preprocessor": "^1.4.4",
     "autoprefixer": "^10.4.2",
     "commitizen": "^4.2.4",
+    "commitlint-config-cz": "^0.13.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.6.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -41,5 +45,16 @@
     "unplugin-vue-components": "^0.17.11",
     "vite": "^2.7.2",
     "vue-tsc": "^0.29.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue,md,json,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

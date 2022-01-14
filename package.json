@@ -6,7 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint --fix --ext .js,.vue,.ts src",
-    "cz": "git cz"
+    "cz": "git add . && git cz"
   },
   "dependencies": {
     "ant-design-vue": "^2.2.8",
@@ -41,10 +41,5 @@
     "unplugin-vue-components": "^0.17.11",
     "vite": "^2.7.2",
     "vue-tsc": "^0.29.8"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }

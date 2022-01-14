@@ -1,16 +1,16 @@
-import { createRouter, createWebHashHistory, NavigationFailure, NavigationGuardNext, RouteLocationNormalized, RouteRecordNormalized, RouteRecordRaw } from "vue-router";
-import index from "src/views/page/index.vue"
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import index from 'src/views/page/index.vue'
 
-const routes:RouteRecordRaw[]=[
-    {
-        path:"/",
-        name:"首页",
-        component:index
-    }
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    name: '首页',
+    component: index
+  }
 ]
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes
-});
+  history: createWebHashHistory(),
+  routes
+})
 
 export default router

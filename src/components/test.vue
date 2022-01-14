@@ -1,9 +1,9 @@
 <template>
-    <div>我是测试元</div>
+  <div>我是测试元</div>
 </template>
 
 <style scoped>
-.eeeeeeeeeeeee{
+  .eeeeeeeeeeeee {
     color: red;
-}
+  }
 </style>

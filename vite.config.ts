@@ -46,7 +46,7 @@ export default defineConfig({
         },
         {
           scopeName: "theme-red-dark",
-          path:resolve("src/theme/theme-red-dark.less"),
+          path: resolve("src/theme/theme-red-dark.less"),
         },
       ],
       // 【注意】includeStyleWithColors作用： css中不是由主题色变量生成的颜色，也让它抽取到主题css内，可以提高权重
@@ -83,7 +83,7 @@ export default defineConfig({
       // removeCssScopeName: false,
     },
   }),
-],
+  ],
   resolve: {
     // rollup的别名配置：https://github.com/rollup/plugins/tree/master/packages/alias#entries
     alias: [
@@ -96,6 +96,10 @@ export default defineConfig({
       { find: /^packages/, replacement: resolve(__dirname, './packages') },
       { find: /^vue-i18n$/, replacement: 'vue-i18n/dist/vue-i18n.cjs.js' },
     ],
+    // alias: {
+    //   "@": resolve(__dirname, './src'),
+    //   "src/": resolve(__dirname, './src')
+    // },
   },
   server: {
     port: 3010,
@@ -105,16 +109,16 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsInlineLimit:4096, // 小于此阈值的导入或引用资源将内联为 base64 编码
+    assetsInlineLimit: 4096, // 小于此阈值的导入或引用资源将内联为 base64 编码
     sourcemap: false,
     brotliSize: false,
-    cssCodeSplit:true,
+    cssCodeSplit: true,
     chunkSizeWarningLimit: 10000,
     rollupOptions: {
       output: {
         manualChunks: {
           // lodash: ['lodash'],
-          "ant-design-vue":["ant-design-vue"],
+          "ant-design-vue": ["ant-design-vue"],
         },
         // manualChunks(id) {
         //   if (id.includes('node_modules')) {
@@ -123,5 +127,5 @@ export default defineConfig({
         // }
       }
     }
-  }
+  },
 })

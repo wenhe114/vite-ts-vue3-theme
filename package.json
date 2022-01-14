@@ -6,7 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint --fix --ext .js,.vue,.ts src",
-    "cz": "git add . && git cz"
+    "cz": "git add . && git cz "
   },
   "dependencies": {
     "ant-design-vue": "^2.2.8",

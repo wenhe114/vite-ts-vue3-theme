@@ -8,12 +8,17 @@
   import { defineComponent } from 'vue'
   // import {post} from "src/request/xhr"
   import { req } from 'src/request/index'
+  import api from 'src/api/index'
   export default defineComponent({
     components: {},
     setup() {
       const body = new FormData()
       body.append('user', 'wenhe')
       body.append('password', '12121')
+      api.common.getDataListApi({ urlQuery: { id: 12, name: 'wenhe' } })
+
+      // api.modules.
+      // api.common.getDataListApi({})
       function login() {
         // post({url:"/login",body:body})
         req({ type: 'get', url: '/contents/list/', query: { id: 11, age: 12 } })?.then((res) => {

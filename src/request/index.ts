@@ -1,17 +1,25 @@
-import { get, post } from './xhr'
-import { TDataType } from './type.d'
+import { get, post, put, del } from './xhr'
+import { TDataType, ReqConfig, Method } from './type.d'
 import render from 'json-templater/string.js'
 import { AxiosRequestConfig } from 'axios'
 import { isObject } from 'src/utils/checkData'
 import { querys, JsonToFormParmas, formParmasToformdata } from 'src/utils/dataToData'
 
-export function req({ url, type, query, urlQuery, body, dataType = 'urlencoded', headers }: any) {
+export function req({
+  url,
+  type = 'get',
+  query = {},
+  urlQuery = {},
+  body = {},
+  dataType = 'urlencoded',
+  headers
+}: ReqConfig) {
   const { data, sendContentType } = getContentTypeAndData(dataType, body)
 
   if (isObject(urlQuery)) {
     url = render(url, urlQuery)
   }
-  if (isObject(query)) {
+  if (isObject(query) && Object.keys(query).length > 0) {
     url = url + '?' + querys(query)
   }
   const newHeaders = {
@@ -21,18 +29,22 @@ export function req({ url, type, query, urlQuery, body, dataType = 'urlencoded',
   const config: AxiosRequestConfig<Record<string, unknown>> = {
     headers: newHeaders
   }
-  type = (type as string).toUpperCase()
+  type = (type as string).toUpperCase() as any as Method
   if (type === 'GET') {
     return get(url, config)
   }
   if (type === 'POST') {
     return post(url, data as FormData | Record<string, unknown>, config)
   }
+  if (type === 'PUT') {
+    return put(url, data as FormData | Record<string, unknown>, config)
+  }
+  if (type === 'DELETE') {
+    return del(url, config)
+  }
 }
 
 function getContentTypeAndData(dataType: TDataType, body: string | Record<string, string>) {
-  console.log(body)
-
   const currentMode = {
     urlencoded: {
       contentType: 'application/x-www-form-urlencoded;charset=utf-8',

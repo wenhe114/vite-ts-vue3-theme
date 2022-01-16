@@ -2,7 +2,7 @@ import axios, { AxiosResponse, AxiosRequestConfig } from 'axios'
 
 import { storage } from 'src/utils/storage'
 
-import { ResultModel } from './type.d'
+import { IResultModel } from './type.d'
 /**
  * http请求工具类
  *
@@ -36,6 +36,8 @@ service.interceptors.response.use(
     return response
   },
   (err: any) => {
+    console.log(err)
+
     let errMsg = ''
     if (err && err.response.status) {
       switch (err.response.status) {
@@ -49,7 +51,9 @@ service.interceptors.response.use(
         case 403:
           errMsg = '拒绝访问'
           break
-
+        case 404:
+          errMsg = '未找到页面'
+          break
         case 408:
           errMsg = '请求超时'
           break
@@ -94,9 +98,7 @@ service.interceptors.response.use(
 function get(
   url: string,
   config?: AxiosRequestConfig<Record<string, unknown>>
-): Promise<ResultModel> {
-  console.log(url)
-
+): Promise<IResultModel> {
   return service.get(url, config).then(processResponse)
 }
 
@@ -108,11 +110,22 @@ function post(
   return service.post(url, body, config)
 }
 
+function put(
+  url: string,
+  body: Record<string, unknown> | FormData,
+  config: AxiosRequestConfig<Record<string, unknown>>
+) {
+  return service.put(url, body, config)
+}
+
+function del(url: string, config?: AxiosRequestConfig<Record<string, unknown>>) {
+  return service.delete(url, config)
+}
 function processResponse(res: AxiosResponse) {
   if (!res) {
     throw new Error('Invalid Request.')
   }
-  const result: ResultModel = res.data
+  const result: IResultModel = res.data
   if (result.status !== 1) {
     return {
       data: '失败了',
@@ -121,4 +134,4 @@ function processResponse(res: AxiosResponse) {
   }
   return result
 }
-export { get, post }
+export { get, post, put, del }

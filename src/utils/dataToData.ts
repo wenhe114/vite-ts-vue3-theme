@@ -1,5 +1,5 @@
 // 构造 URL 的查询字符串
-export function querys(data: Record<string, string>): string {
+export function querys(data: Record<string, unknown> | any): string {
   const urlParams = new URLSearchParams()
   Object.keys(data).forEach((key) => {
     urlParams.append(key, data[key])

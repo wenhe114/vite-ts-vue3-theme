@@ -27,7 +27,10 @@
 <template>
   <div class="tailwind-test">
     <a-button @click="toggleTheme({ scopeName: 'theme-default' })">默认主题</a-button>
-    <a-button style="margin-left: 20px" @click="toggleTheme({ scopeName: 'theme-dark' })"
+    <a-button
+      type="primary"
+      style="margin-left: 20px"
+      @click="toggleTheme({ scopeName: 'theme-dark' })"
       >暗黑主题</a-button
     >
     <a-button style="margin-left: 20px" @click="toggleTheme({ scopeName: 'theme-red' })"

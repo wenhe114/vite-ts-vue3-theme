@@ -2,17 +2,17 @@ export type Method =
   | 'get'
   | 'GET'
   | 'post'
-  | 'Post'
+  | 'POST'
   | 'delete'
-  | 'Delete'
+  | 'DELETE'
   | 'head'
-  | 'Head'
+  | 'HEAD'
   | 'options'
-  | 'Options'
+  | 'OPTIONS'
   | 'patch'
-  | 'Patch'
+  | 'PATCH'
   | 'put'
-  | 'Put'
+  | 'PUT'
 
 export type TDataType = 'urlencoded' | 'json' | 'text' | 'formdata'
 
@@ -77,7 +77,9 @@ export interface ResovledFn<T> {
   (val: T): T | Promise<T>
 }
 
-export interface ResultModel {
+export type TFHttpResult = (config: Omit<ReqConfig, 'url'>) => Promise<IResultModel> | AxiosPromise
+
+export type IResultModel = {
   msg?: string
   data: any
   error?: ErrorMessage
@@ -99,4 +101,14 @@ export interface PostParams {
   url: string
   body: Record<string, unknown>
   config?: Record<string, unknown>
+}
+
+export type ReqConfig = {
+  url: string
+  type?: Method
+  query?: Record<string, unknown> | any
+  urlQuery?: Record<string, unknown> | any
+  body?: Record<string, unknown> | any
+  dataType?: TDataType
+  headers?: Record<string, unknown>
 }

@@ -41,6 +41,49 @@
     >
     <Test></Test>
     <a-button type="primary">测试</a-button>
+    <a-row>
+      <a-col :span="12"
+        ><a-typography-title>Buttons</a-typography-title>
+        <a-button type="primary">Primary Button</a-button>
+        <a-button>Default Button</a-button>
+        <a-button type="dashed">Dashed Button</a-button>
+        <a-button type="text">Text Button</a-button>
+        <a-button type="link">Link Button</a-button>
+        <a-divider />
+        <a-typography-title>Alert</a-typography-title>
+        <a-alert style="margin-bottom: 10px" message="success" type="success" />
+        <a-alert style="margin-bottom: 10px" message="info" type="info" />
+        <a-alert style="margin-bottom: 10px" message="warning" type="warning" />
+        <a-alert message="error" type="error" />
+        <a-divider />
+        <a-breadcrumb>
+          <a-breadcrumb-item>Home</a-breadcrumb-item>
+          <a-breadcrumb-item><a href="">Application Center</a></a-breadcrumb-item>
+          <a-breadcrumb-item><a href="">Application List</a></a-breadcrumb-item>
+          <a-breadcrumb-item>An Application</a-breadcrumb-item>
+        </a-breadcrumb>
+        <a-divider />
+        <Notification />
+        <a-divider />
+        <Modal />
+        <a-divider />
+        <Message />
+      </a-col>
+      <a-col :span="12"
+        ><a-typography-title>Slider</a-typography-title>
+        <Slider />
+        <a-divider />
+        <a-typography-title>Forms</a-typography-title>
+
+        <Forms />
+        <a-divider />
+        <a-typography-title>Table</a-typography-title>
+        <Table />
+
+        <a-typography-title>TimeLine</a-typography-title>
+        <TimeLine
+      /></a-col>
+    </a-row>
   </div>
 </template>
 

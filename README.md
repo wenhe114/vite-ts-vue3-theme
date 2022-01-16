@@ -1,11 +1,41 @@
-# Vue 3 + Typescript + Vite
+## 安装依赖
+```
+npm install
+```
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 打包
+```
+npm run build
+```
 
-## Recommended IDE Setup
+## 运行
+```
+npm run dev
+```
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## eslint检测
+```
+npm run lint
+```
+# git提交
+## Header
+>Header部分包括三个字段type（必需）、scope（可选）和subject（必需）。
+```
+<type>(<scope>): <subject>
+```
+## type
+>type用于说明 commit 的提交性质。
 
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+|值|描述|
+|--|--|
+feat|	新增一个功能
+fix	|修复一个Bug
+docs|	文档变更
+style|	代码格式（不影响功能，例如空格、分号等格式修正）
+refactor|	代码重构
+perf|	改善性能
+test|	测试
+build|	变更项目构建或外部依赖（例如scopes: webpack、gulp、npm等）
+ci|	更改持续集成软件的配置文件和package中的scripts命令，例如scopes: Travis, Circle等
+chore|	变更构建流程或辅助工具
+revert|	代码回退

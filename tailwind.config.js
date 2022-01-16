@@ -12,6 +12,16 @@ module.exports = {
       black: colors.black,
       orange: colors.orange
     },
+    borderRadius:{
+      1:"1px",
+      none:'0px',
+      sm:"2px",
+      lg:"4px",
+      xl:"6px"
+    },
+    dark:{
+      test:"10px"
+    },
     extend: {}
   },
   plugins: []

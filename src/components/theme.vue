@@ -2,13 +2,16 @@
   import { defineComponent } from 'vue'
   import Test from '@/components/test.vue'
   import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js'
+
   export default defineComponent({
     components: {
       Test
     },
     setup() {
-      let test = ''
-      console.log(test)
+      console.log(111111)
+
+      console.log('import.meta', process.env.NODE_ENV)
+
       const testfui = () => {
         console.log(1212)
       }
@@ -41,9 +44,10 @@
 <style scoped lang="less">
   .tailwind-test {
     background: theme('colors.orange.50');
+    color: @theme;
   }
   a {
-    color: #42b983;
+    color: #000;
   }
 
   label {

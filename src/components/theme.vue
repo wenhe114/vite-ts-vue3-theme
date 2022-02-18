@@ -1,11 +1,24 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import Test from '@/components/test.vue'
+  import Test from './test.vue'
   import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js'
-
+  import Forms from './forms.vue'
+  import Table from './table.vue'
+  import Slider from './slider.vue'
+  import TimeLine from './timeLine.vue'
+  import Notification from './notification.vue'
+  import Modal from './modal.vue'
+  import Message from './message.vue'
   export default defineComponent({
     components: {
-      Test
+      Test,
+      Forms,
+      Table,
+      Slider,
+      TimeLine,
+      Notification,
+      Modal,
+      Message
     },
     setup() {
       console.log(111111)
@@ -89,7 +102,7 @@
 
 <style scoped lang="less">
   .tailwind-test {
-    background: theme('colors.orange.50');
+    background: theme('colors.blue.500');
     color: @theme;
   }
   a {
